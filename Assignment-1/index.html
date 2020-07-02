@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number Guessing Game in HTML</title>
+</head>
+<body>
+    <div>Insert your number here: </div>
+    <div id="message"></div>
+    <input type="number" id="number">
+    <button id="guessBtn" onclick="guessBtnClick()">Guess</button>
+    <div id='passGuess'></div>
+
+    <script>
+        const correctNumber = Math.floor((Math.random() * 100) + 1);
+        console.log('Correct number is: ' + correctNumber);
+        let passGuessStr = 'Your past guesses: <br>';
+        let count = 10;
+        function guessBtnClick() {
+            if (count>0) {            
+                let inputValue = parseInt(document.getElementById('number').value);
+                if (inputValue < correctNumber) {
+                    document.getElementById('message').innerHTML = 'Sorry your guess is too low. ';
+                } else if (inputValue > correctNumber) {
+                    document.getElementById('message').innerHTML = 'Sorry your guess is too high. ';
+                } else if (inputValue === correctNumber) {
+                    document.getElementById('message').innerHTML = 'Congratulations!! You guessed correctly.';
+                    document.getElementById('message').style.backgroundColor = 'green';
+                    document.getElementById('guessBtn').disabled = true;
+                    count = 0;
+                    return;
+                }
+                passGuessStr = passGuessStr + `${inputValue}` + '<br>';
+                document.getElementById('passGuess').innerHTML = passGuessStr;
+                count--;
+                document.getElementById('message').innerHTML += `You have ${count} guesses left`;
+                document.getElementById('message').style.backgroundColor = 'red';
+                if (count === 0) {document.getElementById('guessBtn').disabled = true;}
+        }
+        }
+    </script>
+</body>
+</html>
