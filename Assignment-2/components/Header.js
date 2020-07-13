@@ -10,8 +10,8 @@ export default function Header() {
     return (
         <View>
             <View style={styles.header}>
-                <MaterialIcons name="arrow-back" size={24} color={POLO_BLUE_COLOR} />
-                <MaterialIcons name="more-horiz" size={24} color={POLO_BLUE_COLOR} />
+                <MaterialIcons name="arrow-back" size={30} color={POLO_BLUE_COLOR} />
+                <MaterialIcons name="more-horiz" size={30} color={POLO_BLUE_COLOR} />
             </View>
             <View style={styles.information}>
                 <Image
