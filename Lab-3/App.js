@@ -120,5 +120,13 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color: 'green',
     fontWeight: 'bold'
+  },
+  button: {
+    width: 200,
+    height: 30,
+    borderRadius: 15,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginVertical: 5,
   }
 });
