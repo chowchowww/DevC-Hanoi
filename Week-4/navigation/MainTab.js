@@ -4,8 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import Dashboard from '../components/Dashboard';
 import Profile from '../components/Profile';
-import { Image, StyleSheet, Button } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Image, StyleSheet, Button, TouchableOpacity } from 'react-native';
 const Stack = createStackNavigator();
 const rightIcon = require('../assets/Icons/Group-2553x.png');
 const leftIcon = require('../assets/Icons/Group-256x.png');
@@ -36,7 +35,7 @@ const MainScreen = () => (
   </Tab.Navigator>
 )
 
-function Notification({ navigation }) {
+function Notification({navigation}) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <Text>Notification</Text>
@@ -45,7 +44,7 @@ function Notification({ navigation }) {
   )
 }
 
-export default function MainTab({ navigation }){
+export default function MainTab(){
   return (
     <NavigationContainer>
       <MainStack.Navigator>
@@ -60,7 +59,7 @@ export default function MainTab({ navigation }){
             },
             headerRight: () =>
               <TouchableOpacity
-                onPress={() => navigation.navigate('Notification')}
+                onPress={() => alert('notification')}
               >
                 <Image
                   source={rightIcon}
