@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import MapView from 'react-native-maps';
-import { View, StyleSheet, Dimensions, Modal, Text, Button, Image } from 'react-native';
+import { View, StyleSheet, Dimensions, Modal, Text, Button, Image, TouchableOpacity } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import * as Permissions from 'expo-permissions';
 import Constants from 'expo-constants';
+import Lightbox from 'react-native-lightbox';
 
 export default function Map({latitude, longitude}) {
   const [marker, setMarker] = useState([]);
@@ -82,11 +83,19 @@ export default function Map({latitude, longitude}) {
                 latitude: item.latitude,
                 longitude: item.longitude
               }}
-              onPress={() => console.log('pressed')}
             >
               <MapView.Callout tooltip style={styles.calloutStyle}>
                 <View style={styles.bubble}>
-                  {item.uri != '' && <Image source={{ uri: item.uri }} style={{ width: 100, height: 100, alignSelf: 'center' }} />}
+                  {item.uri != '' &&
+                    <Lightbox underlayColor='black' renderHeader={close => (
+                        <TouchableOpacity onPress={close}>
+                          <Text style={styles.closeButton}>Close</Text>
+                        </TouchableOpacity>
+                      )}
+                    >
+                      <Image resizeMode='contain' source={{ uri: item.uri }} style={{ width: 100, height: 100, alignSelf: 'center' }} />
+                    </Lightbox>
+                  }
                   <Text style={{ fontSize: 18, color: 'black', textAlign: 'center' }}>{item.name}</Text>
                 </View>
               </MapView.Callout>
@@ -136,5 +145,15 @@ const styles = StyleSheet.create({
     borderColor: 'white',
     borderWidth: 0.5,
     marginTop: 32,
+  },
+  closeButton: {
+    color: 'white',
+    borderWidth: 1,
+    borderColor: 'white',
+    padding: 8,
+    borderRadius: 3,
+    textAlign: 'center',
+    margin: 10,
+    alignSelf: 'flex-end',
   },
 })
