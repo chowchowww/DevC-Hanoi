@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import * as Location from 'expo-location';
+import Map from '../components/Map';
 
 export default function MainScreen() {
   const [location, setLocation] = useState(null);
@@ -18,18 +19,13 @@ export default function MainScreen() {
     })();
   });
 
-  let text = 'Waiting..';
-  if (errorMsg) {
-    text = errorMsg;
-  } else if (location) {
-    text = JSON.stringify(location);
-    console.log(text)
-  }
-
   return (
     <View style={styles.container}>
       {
-        text
+        !errorMsg && !location && <Text>Waiting..</Text>
+      }
+      {
+        location && <Map latitude={location.coords.latitude} longitude={location.coords.longitude}/>
       }
     </View>
   )
@@ -38,6 +34,7 @@ export default function MainScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    alignItems: 'center',
   }
 })

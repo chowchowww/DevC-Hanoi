@@ -17,10 +17,21 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.chow.map",
+      "config": {
+        "googleMapsApiKey": "AIzaSyCMaMzzhOePVCNtG7ogSLf3Mm4ZLemLOug"
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "android": {
+      "package": "com.chow.map",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyDoQdOfmxmVQ8zTN7_grrwimdRtxUepVFI"
+        }
+      }
     }
   }
 }
