@@ -17,7 +17,7 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.chowchow.Lab-3"
     },
     "web": {
       "favicon": "./assets/favicon.png"
