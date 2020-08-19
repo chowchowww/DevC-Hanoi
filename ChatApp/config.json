@@ -1,0 +1,10 @@
+{
+  apiKey: "AIzaSyDJupBbPf52YRdk2UF8rNZvnX4pQHNOO4g",
+  authDomain: "lab-7-234dc.firebaseapp.com",
+  databaseURL: "https://lab-7-234dc.firebaseio.com",
+  projectId: "lab-7-234dc",
+  storageBucket: "lab-7-234dc.appspot.com",
+  messagingSenderId: "15820175959",
+  appId: "1:15820175959:web:67ba2af07f205adfc5c112",
+  measurementId: "G-BGRKM9FFCF"
+}

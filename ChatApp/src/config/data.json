@@ -1,0 +1,24 @@
+{
+    "messages":[
+        {
+            "_id": 1,
+            "text": "Hello developer 1",
+            "createdAt": null,
+            "user": {
+              "_id": 2,
+              "name": "React Native",
+              "avatar": "https://placeimg.com/140/140/any"
+            }
+        },
+        {
+            "_id": 2,
+            "text": "Hello developer 2",
+            "createdAt": null,
+            "user": {
+              "_id": 3,
+              "name": "Baby",
+              "avatar": "https://placeimg.com/140/140/any"
+            }
+        }
+    ]
+}
